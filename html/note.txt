@@ -1,0 +1,2 @@
+create html pages : login, register, dashboard
+extension : Bootstrap 5 & Font Awesome Snippet https://marketplace.visualstudio.com/items?itemName=HansUXdev.bootstrap5-snippets
