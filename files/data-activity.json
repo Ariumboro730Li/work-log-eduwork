@@ -5,11 +5,11 @@
         "name": "Web Development",
         "description": "Some Description",
         "actions": "1. Build template dengan HTMl, CSS, dan Javascript",
-        "status": "CANCELED",
+        "status": "INPROGRESS",
         "started_at": "2024-01-01",
         "ended_at": ""
     }, {
-        "id": 1,
+        "id": 2,
         "category": "BUG",
         "name": "Bug Fixing",
         "description": "Some Description",
@@ -18,7 +18,7 @@
         "started_at": "2024-01-01",
         "ended_at": ""
     }, {
-        "id": 1,
+        "id": 3,
         "category": "IMPROVEMENT",
         "name": "Feature Makan makan",
         "description": "Some Description",
@@ -27,7 +27,7 @@
         "started_at": "2024-01-01",
         "ended_at": "2024-01-16"
     }, {
-        "id": 1,
+        "id": 4,
         "category": "REFACTOR",
         "name": "Refactor Code",
         "description": "Some Description",
