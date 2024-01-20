@@ -194,7 +194,7 @@
                 <td>${setCategory(dataEl.category)}</td>
                 <td>${dataEl.name}</td>
                 <td>${dataEl.description}</td>
-                <td>${dataEl.actions}</td>
+                <td>${setActions(dataEl.actions, dataEl.id)}</td>
                 <td>${setStatus(dataEl.status)}</td>
                 <td>${dataEl.started_at}</td>
                 <td>${dataEl.ended_at}</td>
@@ -229,6 +229,40 @@
                 className = "secondary";
             }
             return `<a name="" id="" class="btn btn-${className} btn-sm" href="#" role="button">${status}</a>`;
+        }
+
+        function setActions(text, id) {
+            return `
+            <div class="mb-3">
+                <textarea class="form-control" name="" id="textAreaActions${id}" hidden rows="3">${text}</textarea>
+                <p  id="paragraphAction${id}">${text}</p>
+                <a name="" id="editAction${id}" onclick="editAction('${id}')" class="btn btn-outline-primary col-12 btn-sm mt-1" href="#" role="button">Edit</a>
+                <a name="" id="saveAction${id}" onclick="saveCancelActions('${id}', 'save')" class="btn btn-outline-success col-12 btn-sm mt-1" href="#" role="button" hidden>Save</a>
+                <a name="" id="cancelAction${id}" onclick="saveCancelActions('${id}', 'cancel')" class="btn btn-outline-danger col-12 btn-sm mt-1" href="#" role="button" hidden>Cancel</a>
+            </div>
+            `;
+        }
+
+        function editAction(id) {
+            document.getElementById(`paragraphAction${id}`).setAttribute('hidden', true);
+            document.getElementById(`editAction${id}`).setAttribute('hidden', true);
+            document.getElementById(`textAreaActions${id}`).removeAttribute('hidden');
+            document.getElementById(`saveAction${id}`).removeAttribute('hidden');
+            document.getElementById(`cancelAction${id}`).removeAttribute('hidden');
+        }
+
+        function saveCancelActions(id, type) {
+            document.getElementById(`paragraphAction${id}`).removeAttribute('hidden');
+            document.getElementById(`editAction${id}`).removeAttribute('hidden');
+            document.getElementById(`textAreaActions${id}`).setAttribute('hidden', true);
+            document.getElementById(`saveAction${id}`).setAttribute('hidden', true);
+            document.getElementById(`cancelAction${id}`).setAttribute('hidden', true);
+
+            if (type == "save") {
+                document.getElementById(`paragraphAction${id}`).innerHTML = document.getElementById(`textAreaActions${id}`).value;
+            } else {
+                document.getElementById(`textAreaActions${id}`).value = document.getElementById(`paragraphAction${id}`).innerHTML;
+            }
         }
     </script>
 </body>
