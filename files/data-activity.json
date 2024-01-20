@@ -5,7 +5,7 @@
         "name": "Web Development",
         "description": "Some Description",
         "actions": "1. Build template dengan HTMl, CSS, dan Javascript",
-        "status": "INPROGRESS",
+        "status": "CANCELED",
         "started_at": "2024-01-01",
         "ended_at": ""
     }, {
@@ -32,7 +32,7 @@
         "name": "Refactor Code",
         "description": "Some Description",
         "actions": "1. Build template dengan HTMl, CSS, dan Javascript",
-        "status": "DONE",
+        "status": "OPEN",
         "started_at": "2024-01-01",
         "ended_at": ""
     }]
