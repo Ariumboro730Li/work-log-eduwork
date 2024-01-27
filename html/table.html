@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Dashboard</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="card mt-3">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <h5 class="text-center mt-5">Activity Table</h5>
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Id</th>
+                                    <th scope="col">Category</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Description</th>
+                                    <th scope="col">Actions</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Started At</th>
+                                    <th scope="col">Ended At</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbodyActivity">
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous">
+    </script>
+    <script>
+        // 1. fetch file activity.json
+        // 2. jika ada file nya 
+        //   dan di respon dengan baik, 
+        //   maka akan menjalankan then yg kedua.
+        //   Tapi jika gagal, maka akan menjalankan catch 
+        //   dan keluar dari program
+        // 3. jika di respon dgn baik, maka di dalam then kedua
+        //       akan menjalankan program console.log(data)
+        // 
+        function fetchDataActivity() {
+            fetch('../files/data-activity.json')
+                .then(response => {
+                    // Check if the request was successful (status code 200)
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    // Parse the JSON from the response
+                    return response.json();
+                })
+                .then(data => {
+                    console.log(data);
+                })
+                .catch(error => {
+                    // Handle errors during the fetch operation
+                    console.error('Error during fetch operation:', error);
+                });
+        }
+
+        function showDataActivity(data) {
+            // function untuk menampilkan data aktifitas
+            // sebelum panggil function ini, 
+            // data-activity.json harus sudah berhasil di get
+            // dimana function ini harus diletakkan ?
+        }
+
+        // memanggil function
+        fetchDataActivity();
+        // manggil function showDataActivity
+    </script>
+</body>
